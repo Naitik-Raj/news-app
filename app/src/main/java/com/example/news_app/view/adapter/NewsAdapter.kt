@@ -9,7 +9,7 @@ import com.example.news_app.databinding.ItemNewsBinding
 import com.example.news_app.domain.entity.News
 import kotlin.properties.Delegates
 
-class NewsAdapter():RecyclerView.Adapter<NewsViewHolder>() {
+class NewsAdapter:RecyclerView.Adapter<NewsViewHolder>() {
 
     var news: List<News> by Delegates.observable(emptyList()){ _, old, new->
         autoNotify(old,new){o,n->

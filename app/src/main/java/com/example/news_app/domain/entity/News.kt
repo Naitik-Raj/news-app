@@ -1,6 +1,7 @@
 package com.example.news_app.domain.entity
 
-import java.io.FileDescriptor
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 data class News(
     val id:String = "",
@@ -12,4 +13,15 @@ data class News(
     val imageUrl:String = "",
     val publishedAt:String = "",
     val content:String = ""
-)
+){
+    companion object{
+        fun fromJsonString(json: String):News{
+            val type = object : TypeToken<News>() {}.type
+            return Gson().fromJson(json,type)
+        }
+    }
+    fun toJsonString(): String{
+        val type = object : TypeToken<News>() {}.type
+        return Gson().toJson(this,type)
+    }
+}

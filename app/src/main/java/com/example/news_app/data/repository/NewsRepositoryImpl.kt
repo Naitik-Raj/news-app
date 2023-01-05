@@ -6,10 +6,8 @@ import com.example.news_app.domain.entity.News
 import com.example.news_app.domain.repository.NewsRepository
 import com.example.news_app.event.StateEvent
 import com.example.news_app.util.asFlowEvent
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
 
 class NewsRepositoryImpl(private val webService: WebService): NewsRepository {
     private val _topHeadline: MutableStateFlow<StateEvent<List<News>>> =

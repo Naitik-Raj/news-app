@@ -83,5 +83,17 @@ science
 - Create fake error api
 - Create coroutine error handler to ui event
 - Create Simple UI Event
+- Check api for detail page
+  - Api for detail item not available
+  - Create from item
+
+- Create base activity with binding
+- Create gson string converter for convert data to string without parcelize
+- Add glide extensions
+- Add read more with chrome tabs
+
+- Done
+- Update to Git
+
 
 
