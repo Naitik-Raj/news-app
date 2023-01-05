@@ -78,4 +78,10 @@ science
   - Fetching web services with state
   - When operator
 
+###Error handling
+- Git branch feat/error_handling
+- Create fake error api
+- Create coroutine error handler to ui event
+- Create Simple UI Event
+
 
