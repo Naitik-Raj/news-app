@@ -3,4 +3,6 @@
     <string name="hello_world">Hello World</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="error">error</string>
+    <string name="try_again">try again</string>
 </resources>

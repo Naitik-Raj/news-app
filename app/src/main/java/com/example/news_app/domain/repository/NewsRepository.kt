@@ -13,6 +13,7 @@ interface NewsRepository {
     suspend fun getTopHeadlines()
     suspend fun invalidate()
 
+    fun sendErrorFromExceptionHandler(throwable: Throwable)
     companion object{
         fun modules(): Module {
             return module(){

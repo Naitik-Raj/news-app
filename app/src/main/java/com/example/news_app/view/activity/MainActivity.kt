@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.news_app.databinding.ActivityMainBinding
 import com.example.news_app.event.StateEvent
+import com.example.news_app.util.onFailure
 import com.example.news_app.util.onSuccess
 import com.example.news_app.view.adapter.NewsAdapter
 import com.example.news_app.view.viewmodel.NewsViewModel
@@ -35,10 +36,18 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.topHeadline.observe(this) { newsEvent ->
             binding.progressCircular.isVisible = newsEvent is  StateEvent.Loading
+            binding.layoutError.root.isVisible = newsEvent is  StateEvent.Failure
 
-            newsEvent.onSuccess {
+            newsEvent
+                .onSuccess {
                 newsAdapter.news = it
             }
+                .onFailure {
+                    binding.layoutError.textError.text = it.message
+                    binding.layoutError.btnErrorTryAgain.setOnClickListener{
+                        viewModel.getTopHeadline()
+                    }
+                }
         }
     }
     private fun setupView() = binding.apply {
